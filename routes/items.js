@@ -1,6 +1,9 @@
 const express = require('express')
 const route = express.Router()
 const models = require('../models')
+const { check, validationResult } = require('express-validator/check');
+const { matchedData } = require('express-validator/filter');
+//const validate = require('validate-fields')(), schema = {  }
 
 
 // READ DATA TABLE FROM SUBJECT

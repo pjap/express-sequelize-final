@@ -9,8 +9,8 @@
           <th>ID</th>
           <th>NAME</th>
           <th>KOTA</th>
+          <th>List Item</th>
           <th>CREATED AT</th>
-          <th>UPDATED AT</th>
           <th>STATUS</th>
         </tr>
       </thead>
@@ -20,8 +20,9 @@
           <td><%= row.id %></td>
           <td><%= row.name %></td>
           <td><%= row.kota %></td>
+          <td><%= row.Item.name %></td>
+
           <td><%= row.createdAt %></td>
-          <td><%= row.updatedAt %></td>
           <td>
             <a href="/suppliers/edit/<%= row.id %>"><button class="button2">Edit</button></a>
             <a href="/suppliers/delete/<%= row.id %>"><button class="button2">Hapus</button></a>

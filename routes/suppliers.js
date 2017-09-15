@@ -3,35 +3,37 @@ const route = express.Router()
 const models = require('../models')
 
 
-// READ DATA TABLE FROM SUBJECT
-// route.get('/', function(req,res) {
-//   models.Subject.findAll({
-//     include: [
-//       {
-//         model: models.Teacher
-//       }
-//     ]
-//   })
-//   .then(subjects => {
-//     //res.send(subjects)
-//     res.render('subjects', {data: subjects, pageTitle: 'Express Sequelize'})
-//   })
-//   .catch(err => {
-//     res.send(err)
-//   })
-// })
-
-
 //READ DATA TABLE FROM SUBJECT
 route.get('/', function(req,res) {
-  models.Suppliers.findAll()
+  models.Suppliers.findAll({
+    include: [
+      {
+        model: models.Item
+      }
+    ]
+  })
   .then(dataSupplier => {
-    res.render('suppliers', {dtSupplier: dataSupplier})
+    res.send(dataSupplier)
+    // res.render('suppliers', {dtSupplier: dataSupplier})
   })
   .catch(err => {
     res.send(err)
   })
 })
+
+
+//READ DATA TABLE FROM SUBJECT
+// route.get('/', function(req,res) {
+//   models.Suppliers.findAll({
+//     order: [['id', 'ASC']]
+//   })
+//   .then(dataSupplier => {
+//     res.render('suppliers', {dtSupplier: dataSupplier})
+//   })
+//   .catch(err => {
+//     res.send(err)
+//   })
+// })
 
 // CREATE DATA
 route.get('/addSuppliers/', function(req,res) {

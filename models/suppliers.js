@@ -2,13 +2,11 @@
 module.exports = function(sequelize, DataTypes) {
   var Suppliers = sequelize.define('Suppliers', {
     name: DataTypes.STRING,
-    kota: DataTypes.STRING
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
+    kota: DataTypes.STRING,
+    ItemsId: DataTypes.INTEGER
   });
+  Suppliers.associate = function(models) {
+  Suppliers.belongsTo(models.Item,{foreignKey: 'ItemsId'})
+  }
   return Suppliers;
 };
