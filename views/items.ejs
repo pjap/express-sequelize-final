@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <%- include layout/head %>
+  <body>
+    <h1>Halaman Items</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>NAME</th>
+          <th>BRAND</th>
+          <th>CODE ITEM</th>
+          <th>CREATED AT</th>
+          <th>UPDATED AT</th>
+          <th>STATUS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%dtItem.forEach( row => { %>
+        <tr>
+          <td><%= row.id %></td>
+          <td><%= row.name %></td>
+          <td><%= row.brand %></td>
+          <td><%= row.codeitem %></td>
+          <td><%= row.createdAt %></td>
+          <td><%= row.updatedAt %></td>
+          <td>
+            <a href="/items/edit/<%= row.id %>"><button class="button2">Edit</button></a>
+            <a href="/items/delete/<%= row.id %>"><button class="button2">Hapus</button></a>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <div style="padding-left:81.9%;padding-top:10px;">
+      <a href="/items/addItems/%>"><button class="button2">Add Items</button></a>
+      <a href = "/" style="color:black"><button class="button2">Back To Home</button></a>
+    </div>
+
+  </body>
+</html>

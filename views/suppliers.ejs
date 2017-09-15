@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <%- include layout/head %>
+  <body>
+    <h1>Halaman Supplier</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>NAME</th>
+          <th>KOTA</th>
+          <th>CREATED AT</th>
+          <th>UPDATED AT</th>
+          <th>STATUS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%dtSupplier.forEach( row => { %>
+        <tr>
+          <td><%= row.id %></td>
+          <td><%= row.name %></td>
+          <td><%= row.kota %></td>
+          <td><%= row.createdAt %></td>
+          <td><%= row.updatedAt %></td>
+          <td>
+            <a href="/suppliers/edit/<%= row.id %>"><button class="button2">Edit</button></a>
+            <a href="/suppliers/delete/<%= row.id %>"><button class="button2">Hapus</button></a>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <div style="padding-left:79.8%;padding-top:10px;">
+      <a href="/suppliers/addSuppliers/%>"><button class="button2">Add Suppliers</button></a>
+      <a href = "/" style="color:black"><button class="button2">Back To Home</button></a>
+    </div>
+
+  </body>
+</html>
